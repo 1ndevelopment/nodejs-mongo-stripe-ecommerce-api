@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+const dbConfig = require('./config/database-config');
 
 const app = express();
 
@@ -15,8 +16,6 @@ app.use('/api/v1/users', user_route);
 app.use('/api/v1/products', product_route);
 app.use('/api/v1/carts', cart_route);
 app.use('/api/v1/orders', order_route);
-
-const dbConfig = require('./config/database-config');
 
 /* connecting to the database */
 mongoose.connect(dbConfig.URI, {
